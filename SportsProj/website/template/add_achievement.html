@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student Achievement</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            /* display: flex; */
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            align-self: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            margin: auto; /* Center the form */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center; /* Add margin to separate header from the form */
+        }
+        nav {
+            background-color: #444;
+            padding: 15px 0;
+            text-align: center; /* Add margin to separate navigation from the form */
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            background-color: #555;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="date"] {
+            padding: 8px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 15px; /* Increase padding for better clickability */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px; /* Add margin for separation from the input fields */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        main {
+            display: flex;
+            align-items: center;
+            align-self: center;
+            justify-content: center;
+            margin: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sports Department Management System</h1>
+    </header>
+    <nav>
+        <a href="http://localhost:8000/home/?SRN={{SRN}}">Home</a>
+        <a href="http://localhost:8000/equipments/?SRN={{SRN}}">Borrow Equipment</a>
+        <a href="http://localhost:8000/courts/?SRN={{SRN}}">Court Bookings</a>
+        <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
+        <a href="http://localhost:8000/trainers/?SRN={{ SRN }}">Trainers</a>
+        <a href="http://localhost:8000/login/">Log Out</a>
+
+    </nav>
+    <main>
+    <form action="#" method="POST" >
+        {% csrf_token %}
+        {% load static %}
+        <h2>Add Student Achievement</h2>
+
+        <label for="cp">Cash Prize:</label>
+        <input type="integer" id="cp" name="cp" required>
+
+        <label for="titl">Achievement Organisation:</label>
+        <input type="text" id="titl" name="titl" required>
+
+        <label for="aDate">Date:</label>
+        <input type="date" id="aDate" name="aDate" required>
+
+        <label for="pos">Position:</label>
+        <input id="pos" name="pos" rows="4" required></input>
+
+        <button type="submit">Submit</button>
+    </form>
+    </main>
+
+     
+</body>
+</html>

@@ -1,0 +1,114 @@
+{% load static %}
+<html>
+    <head>
+        <title>Equipments</title>
+    </head>
+    
+    <style>
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content:space-evenly;
+                        }
+
+        .card {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .card img {
+            display: block; /* Center the image within each card */
+            margin: 0 auto;
+        }
+        
+        /* On mouse-over, add a deeper shadow */
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        
+        /* Add some padding inside the card container */
+        .container {
+            padding: 2px 16px;
+            width: 100px; /* Define a width for each box (adjust as needed) */
+            height: 100px; /* Define a height for each box (adjust as needed) */
+            background-color: lightblue; /* Just for visual distinction */
+            border: 1px solid #000;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 20px;
+        }
+        nav {
+            background-color: #444;
+            padding: 15px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            background-color: #555;
+        }
+
+        form {
+            margin: 20px auto;
+        }
+    </style>
+    <header><h1>Equipments</h1></header>
+    <nav>
+        <a href="http://localhost:8000/home/?SRN={{ SRN }}">Home</a>
+        <a href="http://localhost:8000/equipments/returnequip/?SRN={{SRN}}">Return Equip</a>
+        <a href="http://localhost:8000/equipments/?SRN={{ SRN }}">Borrow Equipment</a>
+        <a href="http://localhost:8000/courts/?SRN={{ SRN }}">Court Bookings</a>
+        <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
+        <a href="http://localhost:8000/trainers/?SRN={{ SRN }}">Trainers</a>
+        <a href="http://localhost:8000/login/">Log Out</a>
+    </nav><br>
+    <form id="equipmentForm" method="post" action="{% url 'equipments' %}?SRN={{ SRN }}">
+        {% csrf_token %}
+        <div class="wrapper">
+            <div class="card">
+                <input type="checkbox" name="selected_equipment" value="football11">
+                <img src="{% static 'Football.jpg' %}" alt="Avatar" height="300px" width="300px">
+                <h4><b>Football</b></h4>
+            </div>
+            <div class="card">
+                <input type="checkbox" name="selected_equipment" value="basketbl11">
+                <img src="{% static 'Basketball.png' %}" alt="Avatar" height="300px" width="300px">
+                <h4><b>Basketball</b></h4>
+            </div>
+            <div class="card">
+                <input type="checkbox" name="selected_equipment" value="cricketbl1">
+                <img src="{% static 'Cricketball.jpg' %}" alt="Avatar" height="300px" width="300px">
+                <h4><b>Cricketball</b></h4>
+            </div>
+            <!-- Add more cards for other equipment -->
+        </div><br><br>
+        <center><button type="submit">Submit</button></center>
+    </form>
+    <div id="logBox"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                });
+            });
+        });
+        
+    </script>
+</html>

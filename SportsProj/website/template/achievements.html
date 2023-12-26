@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student Achievements</title>
+    <style>
+        body {
+            
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+        p {
+            color: #555;
+        }
+        h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        nav {
+            background-color: #444;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            background-color: #555;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <header>
+        <h1>Student Achievements</h1>
+    </header>
+    <nav>
+        <a href="http://localhost:8000/home/?SRN={{ SRN }}">Home</a>
+        
+        <a href="http://localhost:8000/equipments/?SRN={{ SRN }}">Borrow Equipment</a>
+        <a href="http://localhost:8000/courts/?SRN={{ SRN }}">Court Bookings</a>
+        <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
+        <a href="http://localhost:8000/trainers/?SRN={{ SRN }}">Trainers</a>
+        <a href="http://localhost:8000/add_achievement/?SRN={{ SRN }}">Add Achievements</a>
+        <a href="http://localhost:8000/login/">Log Out</a>
+    </nav>
+    <div class="container">
+        <h2>{{ Student_name }}</h2>
+        <p>Student ID: {{ SRN }}</p>
+
+        <h3>Achievements</h3>
+
+        <div id="achievements-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Award Organization</th>
+                        <th>Cash Prize</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in achievements %}
+                    <tr>
+                        <td>{{ i.position }}</td>
+                        <td>{{ i.awardorg }}</td>
+                        <td>{{ i.cashprize }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h3>Total cash prize won : {{ total }}</h3>    
+        </div>
+    </div>
+    <script>
+        // Log the data to the browser's console
+        console.log("Student Name:", "{{ Student_name }}");
+        console.log("Student ID:", "{{ SRN }}");
+        // console.log("Achievements:", {{ achievements|safe|json_script }});
+    </script>
+</body>
+</html>

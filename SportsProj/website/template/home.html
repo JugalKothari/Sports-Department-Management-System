@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sports Department Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            background-color: #555;
+        }
+        main {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sports Department Management System</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="http://localhost:8000/equipments/?SRN={{SRN}}">Borrow Equipment</a>
+        <a href="http://localhost:8000/courts/?SRN={{SRN}}">Court Bookings</a>
+        <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
+        <a href="http://localhost:8000/trainers/?SRN={{ SRN }}">Trainers</a>
+        <a href="http://localhost:8000/login/">Log Out</a>
+
+    </nav>
+    <main>
+        <h2>Welcome to the Sports Department Management System</h2>
+        <p>This system provides you with the tools to manage student data, faculty data, and sports equipment efficiently.</p>
+        <p>Use the navigation menu above to perform various tasks:</p>
+        <ul>
+            <li><strong>Add/Edit Student Data:</strong> Add or edit information about students participating in sports.</li>
+            <li><strong>Manage Sports Equipment:</strong> Keep track of sports equipment, their availability, and maintenance.</li>
+        </ul>
+    </main>
+</body>
+</html>
