@@ -1,6 +1,7 @@
 Start the server by navigating to website folder and running the following command on terminal
-
-python manage.py runserver
+  ```bash
+  python manage.py runserver
+  ```
 
 Change the username and password in every views.py file to the username and password of your database.
 
